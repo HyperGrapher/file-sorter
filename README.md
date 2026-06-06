@@ -40,3 +40,22 @@ Sort a specific folder:
 Files are sorted into `Images`, `Documents`, `Videos`, `Music`, `Archives`,
 `Installers`, `Torrents`, `Code`, and `Others`. Existing files are not
 overwritten; duplicate names get a numbered suffix.
+
+## PowerShell
+
+```powershell
+.\filesorter.ps1 -DryRun
+.\filesorter.ps1
+.\filesorter.ps1 -DryRun C:\path\to\folder
+```
+
+## Bash
+
+For macOS and Linux:
+
+```sh
+chmod +x filesorter.sh
+./filesorter.sh --dry-run
+./filesorter.sh
+./filesorter.sh --dry-run /path/to/folder
+```
