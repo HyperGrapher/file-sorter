@@ -1,0 +1,26 @@
+name: Build and publish Windows executable
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build Windows executable
+        run: gcc -Wall -Wextra -pedantic -std=c99 -O2 -o filesorter.exe file_sorter.c
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: master-${{ github.sha }}
+          name: FileSorter master build ${{ github.sha }}
+          files: filesorter.exe
